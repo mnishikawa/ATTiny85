@@ -91,6 +91,7 @@ void setup() {
   // initialize melody IC command port
   digitalWrite(PIN_MELODYIC_CTRL, LOW);
   send_melody_command(0xF8);  // set melody IC volume (MAX)
+//  send_melody_command(0xF4);  // set melody IC volume (LEVEL5)
   send_melody_command(0xE8);  // set melody IC play mode (play melody + blinking LED)
 
 }
