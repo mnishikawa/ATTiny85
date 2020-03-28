@@ -26,11 +26,11 @@ This code is based on "Melody" created by Tom Igoe
 */
 
 // Pin definitions
-#define PIN_ADVOL           0
-#define PIN_MELODYIC_CTRL   2
-#define PIN_LATCH           3
-#define PIN_RCLK            4
-#define PIN_SER             5
+#define PIN_ADVOL           A1
+#define PIN_MELODYIC_CTRL   0
+#define PIN_LATCH           1
+#define PIN_RCLK            3
+#define PIN_SER             4 
 
 // Define variable register value
 #define ADC_RESOLUTION      1024
@@ -79,7 +79,7 @@ int pressing_playkey = 0;
 void setup() {
 
   // Initialize for Serial debug
-  Serial.begin(115200);
+//  Serial.begin(115200);
 
   // initialize port
   pinMode(PIN_ADVOL, INPUT);
