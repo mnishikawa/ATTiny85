@@ -1,8 +1,7 @@
 ■　動作概要
 動画を御覧ください。
 
-　https://www.youtube.com/watch?v=jyT1zdc3tBE
-
+  https://www.youtube.com/watch?v=AKH7VCvZT7g
 
 ■　作り方等の情報
 ATTiny85を使って58曲が再生できるメロディIC「M8058S」を制御するためのソースコードです。
@@ -10,7 +9,11 @@ ATTiny85を使って58曲が再生できるメロディIC「M8058S」を制御�
 再生ボタンを押すと再生スタート、停止ボタンで再生停止します。
 回路図、作り方含めてブログにまとめていますのでこちらを御覧ください。
 
-　https://mnishikawa.hatenablog.com/
+  ▼実装、まとめ
+　https://mnishikawa.hatenablog.com/entry/2020/04/04/180148
+
+  ▼基本設計情報
+  https://mnishikawa.hatenablog.com/entry/2020/04/04/160036
 
 
 このコードは、ATTiny85（内部動作クロックを8MHzで使用）に最適化したタイミングパラメータをセットしています。
