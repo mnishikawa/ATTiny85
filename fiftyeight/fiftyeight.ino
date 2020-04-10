@@ -16,13 +16,6 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-----
-This code is based on "Melody" created by Tom Igoe
-
-  This example code is in the public domain.
-
-  http://www.arduino.cc/en/Tutorial/Tone
-
 */
 
 // Pin definitions
@@ -91,7 +84,6 @@ void setup() {
   // initialize melody IC command port
   digitalWrite(PIN_MELODYIC_CTRL, LOW);
   send_melody_command(0xF8);  // set melody IC volume (MAX)
-//  send_melody_command(0xF4);  // set melody IC volume (LEVEL5)
   send_melody_command(0xE8);  // set melody IC play mode (play melody + blinking LED)
 
 }
@@ -117,6 +109,9 @@ void loop() {
   check_melody_number--;
   if(check_melody_number == 0){
     melody = read_melody_num(analog_val);
+    if(melody >= MELODY_NUMBER){
+      melody = MELODY_NUMBER - 1;
+    }
     check_melody_number = READ_MELODY_NUM_PERIODIC;
   }
 
@@ -130,7 +125,7 @@ void loop() {
 
 void play_melody(int melody_no) {
     send_melody_command(melody_no);
-    return 0;
+    return;
 }
 
 
@@ -167,7 +162,7 @@ void send_melody_command(int command) {
     delay(1000/HZ); 
   }
    
-    return 0;
+    return;
 
 }
 
